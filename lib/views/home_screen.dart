@@ -73,6 +73,22 @@ class HomeScreen extends StatelessWidget {
               }
             ),
           ),
+          Card(
+            child: ListTile(
+              title: const Text('GetX Navigation'),
+              onTap: () {
+                Get.toNamed('/screenOne', arguments: ['Md. Shifat Bin Reza']);
+              },
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('GetX Responsive'),
+              onTap: () {
+                Get.toNamed('/screenTwo');
+              }
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
