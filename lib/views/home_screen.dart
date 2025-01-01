@@ -30,9 +30,11 @@ class HomeScreen extends StatelessWidget {
                 Get.defaultDialog(
                   title: 'Hello World',
                   content: const Text('Hello World'),
-                  cancel: TextButton(onPressed: () {
-                    Navigator.pop(context);
-                  }, child: Text('Cancel')),
+                  cancel: TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Cancel')),
                   confirm: TextButton(onPressed: () {}, child: Text('Confirm')),
                 );
               },
@@ -40,38 +42,35 @@ class HomeScreen extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              title: const Text('GetX BottomSheet'),
-              // subtitle: const Text('GetX BottomSheet'),
-              onTap: () {
-                Get.bottomSheet(
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
+                title: const Text('GetX BottomSheet'),
+                // subtitle: const Text('GetX BottomSheet'),
+                onTap: () {
+                  Get.bottomSheet(
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          ListTile(
+                              title: const Text('Light Theme'),
+                              onTap: () {
+                                Get.changeTheme(ThemeData.light());
+                              }),
+                          ListTile(
+                              title: const Text('Dark Theme'),
+                              onTap: () {
+                                Get.changeTheme(ThemeData.dark());
+                              }),
+                        ],
                       ),
                     ),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: const Text('Light Theme'),
-                          onTap: () {
-                            Get.changeTheme(ThemeData.light());
-                          }
-                        ),
-                        ListTile(
-                          title: const Text('Dark Theme'),
-                          onTap: () {
-                            Get.changeTheme(ThemeData.dark());
-                          }
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }
-            ),
+                  );
+                }),
           ),
           Card(
             child: ListTile(
@@ -83,9 +82,24 @@ class HomeScreen extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              title: const Text('GetX Responsive'),
+                title: const Text('GetX Responsive'),
+                onTap: () {
+                  Get.toNamed('/screenTwo');
+                }),
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('GetX Counter Controller'),
               onTap: () {
-                Get.toNamed('/screenTwo');
+                Get.toNamed('/screenThree');
+              },
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('GetX Opacity Controller'),
+              onTap: () {
+                Get.toNamed('/screenFour');
               }
             ),
           ),
@@ -102,7 +116,7 @@ class HomeScreen extends StatelessWidget {
             snackPosition: SnackPosition.TOP,
           );
         },
-        child: Icon(Icons.add, color: Colors.white,),
+        child: Icon(Icons.add, color: Colors.white),
       ),
     );
   }
